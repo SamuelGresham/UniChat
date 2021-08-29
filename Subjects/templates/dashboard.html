@@ -46,6 +46,7 @@
         <tbody>
             {% if requesters %}
                 {% for req in requesters %}
+                <tr>
                     <td>{{req.first}}</td>
                     <td>{{req.last}}</td>
                     <td><a href='{{req.link}}' target="_blank">link</a></td>
@@ -56,6 +57,7 @@
                             <button style='height: 30px; padding: 5px; padding-left: 10px; padding-right: 10px'>Mark as Added</button>
                         </form>
                     </td>
+                </tr>
                 {% endfor %}
             {% else %}
                 <td>No requesters pending.</td>
@@ -74,6 +76,7 @@
         <tbody>
             {% if done %}
                 {% for req in done %}
+                <tr>
                     <td>{{req.first}}</td>
                     <td>{{req.last}}</td>
                     <td><a href='{{req.link}}' target="_blank">link</a></td>
@@ -84,6 +87,7 @@
                             <button style='height: 30px; padding: 5px; padding-left: 10px; padding-right: 10px'>Un-mark as Added</button>
                         </form>
                     </td>
+                </tr>
                 {% endfor %}
             {% else %}
                 <td>No requesters accepted.</td>

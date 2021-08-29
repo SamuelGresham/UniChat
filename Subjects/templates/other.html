@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type='text/css' href="{% static 'Subjects/styles.css' %}">
+    <script src="{% static 'Subjects/populate_selector.js' %}"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+    <title>UniChat</title>
+</head>
+<body onload='populate()'>
+    <h1>Publish your Groupchat to UniChat</h1>
+    <p>If you have a non-messenger group chat (like a <b>Discord Server</b>), then sharing it is as simple as providing a sharable link for 
+    users to click!</p>
+    <b>To publish your chat, please provide the information below:</b> <br><br>
+
+    <form method="POST" action='makeother'>{% csrf_token %}
+        <input list='courses' style='display: inline' placeholder="Course Code" id='course' name='course'>
+        <datalist id='courses' class='inputbox'></datalist>
+
+        <input list='period' style='display: inline' placeholder="Teaching Period" id='period' name='period'>
+        <datalist id='period'></datalist> 
+
+        <input type='text' placeholder="Groupchat Name" id='name' name='name'>
+        <input type='text' placeholder="Platform (e.g. Discord)" id='platform' name='platform'>
+        <input type='text' placeholder="Shareable URL" id='url' name='url'>
+
+        <button>Go</button>
+    </form>
+</body>
+</html>

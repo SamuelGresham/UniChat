@@ -115,6 +115,47 @@ def dashboard (request, chat_id):
 
     return render(request, "dashboard.html", {'info': chat_info, 'requesters': requesters, 'done': done})
 
+def request (request, chat_id):
+    return render(request, "request.html", {'chat_id': chat_id})
+
+def request_submit (request): 
+    first_name = request.POST.get("first")
+    last_name = request.POST.get("last")
+    mess_code = request.POST.get("chat_id")
+    fb_url = request.POST.get("url")
+
+    print(f'{first_name} {last_name} {mess_code} {fb_url}')
+
+    req = Request(first_name=first_name, last_name=last_name, mess_id=mess_code, fb_link=fb_url, added=False)
+    
+    req.save()
+    
+    return render(request, "success.html")
+
+def publish_other (request):
+    return render(request, "other.html")
+
+def process_other (request):
+    course_code = request.POST.get("course")
+    period = request.POST.get("period")
+    name = request.POST.get("name")
+    platform = request.POST.get("platform")
+    url = request.POST.get("url")
+
+    chat = Chat(chat_name=name, chat_platform=platform, chat_link=url, course=course_code, period=period, approved=False, mess_id="none")
+
+    chat.save()
+
+    context = {
+        'name': name,
+        'platform': platform,
+        'url': url,
+        'course': course_code,
+        'period': period,
+    }
+
+    return render(request, "other_made.html", context)
+
 @login_required
 def init (request):
     f = open("Subjects/data.txt", "r")

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type='text/css' href="{% static 'Subjects/styles.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+    <title>UniChat</title>
+</head>
+<body>
+    <h1>Chat Published Successfully</h1>
+    <p>All done! Our team now have to approve your chat to ensure the safety of our site, and then your chat listing will be live on <b>UniChat</b>!</p>
+    <b>Below is a summary of your chat listing: </b> <br><br>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Property</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Course</td>
+                <td>{{course}}</td>
+            </tr>
+            <tr>
+                <td>Period</td>
+                <td>{{period}}</td>
+            </tr>
+            <tr>
+                <td>Platform</td>
+                <td>{{platform}}</td>
+            </tr>
+            <tr>
+                <td>Chat Name</td>
+                <td>{{name}}</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

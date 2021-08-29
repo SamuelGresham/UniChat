@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type='text/css' href="{% static 'Subjects/styles.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+    <title>UniChat</title>
+</head>
+<body>
+    <h1>Request to be Added</h1>
+    <p>Since this is a <b>Messenger</b> group chat, you need to request to be added.</p>
+    <b>Fill in your details below, and the groupchat owner will add you:</b> <br><br>
+
+    <form method="POST" action="submit">{% csrf_token %}
+        <input type='text' value={{chat_id}} name="chat_id" style='display:none'>
+        <input type='text' placeholder="First Name" name='first'>
+        <input type='text' placeholder="Last Name" name='last'>
+        <input type='text' placeholder="Facebook Profile URL" name='url'>
+        <button>Request to be Added</button>
+    </form>
+</body>
+</html>
