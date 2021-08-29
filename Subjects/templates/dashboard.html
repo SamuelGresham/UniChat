@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type='text/css' href="{% static 'Subjects/styles.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+    <title>UniChat</title>
+</head>
+<body onload='populate()'>
+    <h1>Dashboard</h1>
+    <h3>Chat Information</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Information</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Course:</td> 
+                <td>{{info.course}}</td>
+            </tr>
+            <tr>
+                <td>Period:</td> 
+                <td>{{info.period}}</td>
+            </tr>
+            <tr>
+                <td>Chat Name:</td> 
+                <td>{{info.name}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>Pending Requests</h3>
+    <table>
+        <thead>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Facebook Profile</th>
+            <th>Add</th>
+        </thead>
+        <tbody>
+            {% if requesters %}
+                {% for req in requesters %}
+                    <td>{{req.first}}</td>
+                    <td>{{req.last}}</td>
+                    <td><a href='{{req.link}}' target="_blank">link</a></td>
+                    <td>
+                        <form method="POST">{% csrf_token %}
+                            <input value="add" name="data" style="display:none">
+                            <input value='{{ req.id }}' name="id" style="display:none">
+                            <button style='height: 30px; padding: 5px; padding-left: 10px; padding-right: 10px'>Mark as Added</button>
+                        </form>
+                    </td>
+                {% endfor %}
+            {% else %}
+                <td>No requesters pending.</td>
+            {% endif %}
+        </tbody>
+    </table>
+
+    <h3>Accepted Requests</h3>
+    <table>
+        <thead>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Facebook Profile</th>
+            <th>Add</th>
+        </thead>
+        <tbody>
+            {% if done %}
+                {% for req in done %}
+                    <td>{{req.first}}</td>
+                    <td>{{req.last}}</td>
+                    <td><a href='{{req.link}}' target="_blank">link</a></td>
+                    <td>
+                        <form method="POST">{% csrf_token %}
+                            <input value="add" name="data" style="display:none">
+                            <input value='{{ req.id }}' name="id" style="display:none">
+                            <button style='height: 30px; padding: 5px; padding-left: 10px; padding-right: 10px'>Un-mark as Added</button>
+                        </form>
+                    </td>
+                {% endfor %}
+            {% else %}
+                <td>No requesters accepted.</td>
+            {% endif %}  
+        </tbody>
+    </table>
+</body>
+</html>

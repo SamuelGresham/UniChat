@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type='text/css' href="{% static 'Subjects/styles.css' %}">
+    <script src="{% static 'Subjects/populate_selector.js' %}"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+    <title>UniChat</title>
+</head>
+<body onload="populate()">
+    <h1>Find a Course</h1>
+    <p>To find your course, simply type the course code and teaching period below:</p>
+    <form method='POST'>{% csrf_token %}
+        <input list='courses' style='display: inline' placeholder="Course Code" id='course' name='course'>
+        <datalist id='courses' class='inputbox'></datalist>
+
+        <input list='period' style='display: inline' placeholder="Teaching Period" id='period' name='period'>
+        <datalist id='period'></datalist>
+
+        <button>Go</button>
+    </form>
+
+    
+            {% if data %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Chat Name</td>
+                        <th>Platform</td>
+                        <th>Link</td>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for chat in data %}
+                    <tr>
+                        <td>{{chat.name}}</td>
+                        <td>{{chat.platform}}</td>
+                        <td><a href="{{chat.url}}">{{chat.url_text}}</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+            {% else %}
+            {%endif%}
+        </tbody>
+    </table>
+
+</body>
+</html>

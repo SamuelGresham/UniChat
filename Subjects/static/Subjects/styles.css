@@ -1,0 +1,15 @@
+.homebutton {
+    width: 100%
+}
+
+.inputbox {
+    display: inline;
+    color: red
+}
+
+.mark {
+    padding: 0px;
+    margin: 0px;
+    height: 1px;
+    width: 1px
+}

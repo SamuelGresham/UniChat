@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type='text/css' href="{% static 'Subjects/styles.css' %}">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+    <title>UniChat</title>
+</head>
+<body>
+    <h1>Welcome to UniChat!</h1>
+    <p>Tired of trying to find group chats for your uni courses? Feeling disconnected from uni life due to COVID?</p>
+    <p>UniChat is here to help. UniChat lets you easily search for course group chats, helping you connect with your peers. </p>
+    <b>To get started, select the option which applies to you below:</b> <br><br>
+
+    <button class='homebutton' onclick='window.location = "find/"'>I am a student who wants to find a course group chat.</button>
+    <button class='homebutton' onclick='window.location = "publish/"'>I run a group chat and would like to publish my chat on UniChat.</button>
+</body>
+</html>
