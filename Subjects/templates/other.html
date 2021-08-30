@@ -18,10 +18,10 @@
 
     <form method="POST" action='makeother'>{% csrf_token %}
         <input list='courses' style='display: inline' placeholder="Course Code" id='course' name='course'>
-        <datalist id='courses' class='inputbox'></datalist>
+        <datalist id='courses' class='inputbox' style='display:none'></datalist>
 
         <input list='period' style='display: inline' placeholder="Teaching Period" id='period' name='period'>
-        <datalist id='period'></datalist> 
+        <datalist id='period' style='display:none'></datalist> 
 
         <input type='text' placeholder="Groupchat Name" id='name' name='name'>
         <input type='text' placeholder="Platform (e.g. Discord)" id='platform' name='platform'>
