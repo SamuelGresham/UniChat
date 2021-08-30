@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-1(n6g3swt(7=ik$=gda9@@8-fs2h^c6=rsf+zfdahz%r-#bm)3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["unsw.unichat.cloud"]
 
 
 # Application definition
