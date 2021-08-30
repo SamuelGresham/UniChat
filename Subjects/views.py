@@ -70,7 +70,7 @@ def process_messenger (request):
 
     chat.save()
 
-    chat.chat_link = "http://127.0.0.1:8000/request/" + str(course) + str(chat.pk)
+    chat.chat_link = "http://unsw.unichat.cloud/request/" + str(course) + str(chat.pk)
     chat.mess_id = str(course) + str(chat.pk)
 
     chat.save()
