@@ -2,22 +2,12 @@
     width: 100%
 }
 
-.inputbox {
-    display: inline;
-    color: red
-}
-
-.mark {
-    padding: 0px;
-    margin: 0px;
-    height: 1px;
-    width: 1px
-}
-
 .logo {
-    
+    transition: 0.3s;
+    text-align: center;
 }
 
 .logo:hover {
-    color: red;
+    cursor: pointer;
+    color: rgb(195, 195, 195);
 }
