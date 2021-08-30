@@ -17,5 +17,6 @@ urlpatterns = [
     path('request/<str:chat_id>', views.request, name='request'),
     path('publish/other', views.publish_other, name='pubother'),
     path('publish/makeother', views.process_other, name='pubother'),
+    path('publish/makeother/success', views.process_other_done, name='process_other_done'),
     path('help', views.help, name='help'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

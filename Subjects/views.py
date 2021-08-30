@@ -1,5 +1,5 @@
-from django.http.response import HttpResponse, HttpResponseBadRequest
-from django.shortcuts import render
+from django.http.response import HttpResponse, HttpResponseBadRequest, HttpResponseRedirect
+from django.shortcuts import render, redirect
 from .models import Subject, Chat, Request
 from django.contrib.auth.decorators import login_required
 import json
@@ -75,7 +75,8 @@ def process_messenger (request):
 
     chat.save()
 
-    return render(request, "messenger_success.html", {'URL': chat.chat_link, 'id': chat.mess_id})
+    # return render(request, "messenger_success.html", {'URL': chat.chat_link, 'id': chat.mess_id})
+    return redirect ("http://127.0.0.1:8000/dashboard/" + str(str(course) + str(chat.pk)))
 
 def dashboard (request, chat_id):
 
@@ -154,7 +155,10 @@ def process_other (request):
         'period': period,
     }
 
-    return render(request, "other_made.html", context)
+    return redirect('process_other_done')
+
+def process_other_done (request):
+    return render(request, "other_made.html")
 
 def help (request):
     return render(request, "help.html")
