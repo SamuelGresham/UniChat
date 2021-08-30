@@ -15,10 +15,10 @@
     <p>To find your course, simply type the course code and teaching period below:</p>
     <form method='POST'>{% csrf_token %}
         <input list='courses' style='display: inline' placeholder="Course Code" id='course' name='course'>
-        <datalist id='courses' class='inputbox'></datalist>
+        <datalist id='courses' class='inputbox' style='display:none'></datalist>
 
         <input list='period' style='display: inline' placeholder="Teaching Period" id='period' name='period'>
-        <datalist id='period'></datalist>
+        <datalist id='period' style='display:none'></datalist>
 
         <button>Go</button>
     </form>
