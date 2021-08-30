@@ -32,7 +32,7 @@ def findChats (course, period):
                 chat_list.append({
                     'name': chat.chat_name,
                     'platform': chat.chat_platform,
-                    'url': "http://127.0.0.1:8000/request/" + str(chat.mess_id),
+                    'url': "http:unsw.unichat.cloud/request/" + str(chat.mess_id),
                     'url_text': "Request Access"
                 })
             else:
