@@ -156,6 +156,9 @@ def process_other (request):
 
     return render(request, "other_made.html", context)
 
+def help (request):
+    return render(request, "help.html")
+
 @login_required
 def init (request):
     f = open("Subjects/data.txt", "r")
