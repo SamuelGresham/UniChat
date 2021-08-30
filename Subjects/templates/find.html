@@ -15,7 +15,7 @@
 <body onload="populate()">
     <h1 class='logo' onclick='window.location = "https://unsw.unichat.cloud"'>UNSW UniChat</h1> <hr>    <h1>Find a Course</h1>
     <p>To find your course, simply type the course code and teaching period below:</p>
-    <form method='POST' name='search' onsubmit='return validate()'>{% csrf_token %}
+    <form method='POST' name='search' onsubmit='return validateCourse()'>{% csrf_token %}
         <input list='courses' style='display: inline' placeholder="Course Code" id='course' name='course' autocomplete="off">
         <datalist id='courses' class='inputbox' style='display:none'></datalist>
 
