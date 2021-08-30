@@ -8,20 +8,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>UniChat</title>
 </head>
 <body onload='populate()'>
-    <h1>Publish your Messenger Groupchat to UniChat</h1>
+    <h1 class='logo' onclick='window.location = "https://unsw.unichat.cloud"'>UNSW UniChat</h1> <hr>    <h1>Publish your Messenger Groupchat to UniChat</h1>
     <p>Messenger Groupchats do not have the capability to add users via a sharable link. This has been an issue for groupchat moderators for a few years now :(</p>
     <p>Never fear, <b>UniChat</b> is here to help. <b>UniChat</b> will allow people to request access to your groupchat, and give you a list of those who have requested to be added so you can add them at your convinience.</p>
     <b>To get started, please fill out some information about your groupchat: </b> <br><br>
 
-    <form method="POST" action=makemessenger>{% csrf_token %}
+    <form method="POST" action='makemessenger' onsubmit='return validateCourse() && checkIsFilled("name")' name='search'>{% csrf_token %}
         <input list='courses' style='display: inline' placeholder="Course Code" id='course' name='course' autocomplete="off">
         <datalist id='courses' class='inputbox' style='display:none'></datalist>
 
-        <input list='period' style='display: inline' placeholder="Teaching Period" id='period' name='period' autocomplete="off">
-        <datalist id='period' style='display:none'></datalist> 
+        <select style='display: inline' id='period' name='period'>
+            <option value='21T3'>21T3</option>
+        </select>
 
         <input type='text' placeholder="Groupchat Name" id='name' name='name' autocomplete="off">
 

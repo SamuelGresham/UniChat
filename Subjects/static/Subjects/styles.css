@@ -13,3 +13,11 @@
     height: 1px;
     width: 1px
 }
+
+.logo {
+    
+}
+
+.logo:hover {
+    color: red;
+}

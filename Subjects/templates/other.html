@@ -8,20 +8,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>UniChat</title>
 </head>
 <body onload='populate()'>
-    <h1>Publish your Groupchat to UniChat</h1>
+    <h1 class='logo' onclick='window.location = "https://unsw.unichat.cloud"'>UNSW UniChat</h1> <hr>    <h1>Publish your Groupchat to UniChat</h1>
     <p>If you have a non-messenger group chat (like a <b>Discord Server</b>), then sharing it is as simple as providing a sharable link for 
     users to click!</p>
     <b>To publish your chat, please provide the information below:</b> <br><br>
 
-    <form method="POST" action='makeother'>{% csrf_token %}
+    <form method="POST" action='makeother' name='search' onsubmit="return validateCourse() && checkIsFilled('name') && checkIsFilled('platform') && checkIsFilled('url')">{% csrf_token %}
         <input list='courses' style='display: inline' placeholder="Course Code" id='course' name='course' autocomplete="off">
         <datalist id='courses' class='inputbox' style='display:none'></datalist>
 
-        <input list='period' style='display: inline' placeholder="Teaching Period" id='period' name='period' autocomplete="off">
-        <datalist id='period' style='display:none'></datalist> 
+        <select style='display: inline' id='period' name='period'>
+            <option value='21T3'>21T3</option>
+        </select>
 
         <input type='text' placeholder="Groupchat Name" id='name' name='name' autocomplete="off">
         <input type='text' placeholder="Platform (e.g. Discord)" id='platform' name='platform' autocomplete="off">

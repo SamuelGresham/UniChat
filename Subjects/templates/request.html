@@ -3,22 +3,23 @@
 <head>
     {% load static %}
     <link rel="stylesheet" type='text/css' href="{% static 'Subjects/styles.css' %}">
+    <script src="{% static 'Subjects/populate_selector.js' %}"></script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
-    <title>UniChat</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>    <title>UniChat</title>
 </head>
 <body>
-    <h1>Request to be Added</h1>
+    <h1 class='logo' onclick='window.location = "https://unsw.unichat.cloud"'>UNSW UniChat</h1> <hr>    <h1>Request to be Added</h1>
     <p>Since this is a <b>Messenger</b> group chat, you need to request to be added.</p>
     <b>Fill in your details below, and the groupchat owner will add you:</b> <br><br>
 
-    <form method="POST" action="submit">{% csrf_token %}
+    <form method="POST" action="submit" name='search' onsubmit="return checkIsFilled('first') && checkIsFilled('last') && checkIsFilled('url')">{% csrf_token %}
         <input type='text' value={{chat_id}} name="chat_id" style='display:none' autocomplete="off">
-        <input type='text' placeholder="First Name" name='first' autocomplete="off">
-        <input type='text' placeholder="Last Name" name='last' autocomplete="off">
-        <input type='text' placeholder="Facebook Profile URL" name='url' autocomplete="off">
+        <input type='text' placeholder="First Name" name='first' autocomplete="off" id='first'>
+        <input type='text' placeholder="Last Name" name='last' autocomplete="off" id='last'>
+        <input type='text' placeholder="Facebook Profile URL" name='url' autocomplete="off" id='url'>
         <button>Request to be Added</button>
     </form>
 </body>
