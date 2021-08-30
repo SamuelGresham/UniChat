@@ -17,15 +17,15 @@
     <b>To publish your chat, please provide the information below:</b> <br><br>
 
     <form method="POST" action='makeother'>{% csrf_token %}
-        <input list='courses' style='display: inline' placeholder="Course Code" id='course' name='course'>
+        <input list='courses' style='display: inline' placeholder="Course Code" id='course' name='course' autocomplete="off">
         <datalist id='courses' class='inputbox' style='display:none'></datalist>
 
-        <input list='period' style='display: inline' placeholder="Teaching Period" id='period' name='period'>
+        <input list='period' style='display: inline' placeholder="Teaching Period" id='period' name='period' autocomplete="off">
         <datalist id='period' style='display:none'></datalist> 
 
-        <input type='text' placeholder="Groupchat Name" id='name' name='name'>
-        <input type='text' placeholder="Platform (e.g. Discord)" id='platform' name='platform'>
-        <input type='text' placeholder="Shareable URL" id='url' name='url'>
+        <input type='text' placeholder="Groupchat Name" id='name' name='name' autocomplete="off">
+        <input type='text' placeholder="Platform (e.g. Discord)" id='platform' name='platform' autocomplete="off">
+        <input type='text' placeholder="Shareable URL" id='url' name='url' autocomplete="off">
 
         <button>Go</button>
     </form>

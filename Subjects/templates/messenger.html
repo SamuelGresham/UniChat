@@ -17,13 +17,13 @@
     <b>To get started, please fill out some information about your groupchat: </b> <br><br>
 
     <form method="POST" action=makemessenger>{% csrf_token %}
-        <input list='courses' style='display: inline' placeholder="Course Code" id='course' name='course'>
+        <input list='courses' style='display: inline' placeholder="Course Code" id='course' name='course' autocomplete="off">
         <datalist id='courses' class='inputbox' style='display:none'></datalist>
 
-        <input list='period' style='display: inline' placeholder="Teaching Period" id='period' name='period'>
+        <input list='period' style='display: inline' placeholder="Teaching Period" id='period' name='period' autocomplete="off">
         <datalist id='period' style='display:none'></datalist> 
 
-        <input type='text' placeholder="Groupchat Name" id='name' name='name'>
+        <input type='text' placeholder="Groupchat Name" id='name' name='name' autocomplete="off">
 
         <button>Go</button>
     </form>
