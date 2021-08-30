@@ -76,7 +76,7 @@ def process_messenger (request):
     chat.save()
 
     # return render(request, "messenger_success.html", {'URL': chat.chat_link, 'id': chat.mess_id})
-    return redirect ("http://127.0.0.1:8000/dashboard/" + str(str(course) + str(chat.pk)))
+    return redirect ("http://unsw.unichat.cloud/dashboard/" + str(str(course) + str(chat.pk)))
 
 def dashboard (request, chat_id):
 
