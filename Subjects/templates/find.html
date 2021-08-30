@@ -8,17 +8,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <title>UniChat</title>
 </head>
 <body onload="populate()">
-    <h1>Find a Course</h1>
+    <h1 class='logo' onclick='window.location = "https://unsw.unichat.cloud"'>UNSW UniChat</h1> <hr>    <h1>Find a Course</h1>
     <p>To find your course, simply type the course code and teaching period below:</p>
-    <form method='POST'>{% csrf_token %}
+    <form method='POST' name='search' onsubmit='return validate()'>{% csrf_token %}
         <input list='courses' style='display: inline' placeholder="Course Code" id='course' name='course' autocomplete="off">
         <datalist id='courses' class='inputbox' style='display:none'></datalist>
 
-        <input list='period' style='display: inline' placeholder="Teaching Period" id='period' name='period' autocomplete="off">
-        <datalist id='period' style='display:none'></datalist>
+        <select style='display: inline' id='period' name='period'>
+            <option value='21T3'>21T3</option>
+        </select>
+        
 
         <button>Go</button>
     </form>
